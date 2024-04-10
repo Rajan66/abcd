@@ -1,11 +1,14 @@
-
 'use client'
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'next/navigation'
 
 const Page = () => {
+    const postId = useParams()
+    console.log(postId)
+
     const [values, setValues] = useState({
-        id: '',
+        id: postId.stringify,
         title: '',
         body: ''
     });
@@ -28,7 +31,7 @@ const Page = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.put(`https://jsonplaceholder.typicode.com/posts/${id}`, values)
+        axios.patch(`https://jsonplaceholder.typicode.com/posts/${id}`, values)
             .then(res => {
                 console.log('Update successful:', res.data);
                 // Handle success if needed
