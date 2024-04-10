@@ -4,11 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation'
 
 const Page = () => {
-    const postId = useParams()
-    console.log(postId)
+    const params = useParams()
+    console.log(params.id)
 
     const [values, setValues] = useState({
-        id: '',
+        id: params.id,
         title: '',
         body: ''
     });
