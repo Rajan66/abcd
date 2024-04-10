@@ -8,7 +8,7 @@ const Page = () => {
     console.log(postId)
 
     const [values, setValues] = useState({
-        id: postId.stringify,
+        id: '',
         title: '',
         body: ''
     });
